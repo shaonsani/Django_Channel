@@ -25,18 +25,22 @@ SECRET_KEY = 'django-insecure-$61^%umxc33b)o1xpf*%zvj4biplm$q-dl4m@4+@*$b-bp@p$s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chat',
+
 ]
 
 MIDDLEWARE = [
@@ -67,7 +71,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_channel_starter.wsgi.application'
+# WSGI_APPLICATION = 'django_channel_starter.wsgi.application'
+# Daphne
+ASGI_APPLICATION = "django_channel_starter.asgi.application"
 
 
 # Database
