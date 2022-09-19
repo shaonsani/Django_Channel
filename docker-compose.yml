@@ -10,6 +10,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -19,3 +24,4 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - redis
